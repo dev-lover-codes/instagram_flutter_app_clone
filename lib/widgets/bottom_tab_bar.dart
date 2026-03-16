@@ -21,8 +21,8 @@ class BottomTabBar extends StatelessWidget {
       child: Row(
         children: [
           _TabItem(
-            icon: Icons.home,
-            iconOutline: Icons.home_outlined,
+            icon: Icons.home_filled,
+            iconOutline: Icons.home_filled,
             isActive: currentIndex == 0,
             onTap: () => onTap(0),
           ),
@@ -32,10 +32,15 @@ class BottomTabBar extends StatelessWidget {
             isActive: currentIndex == 1,
             onTap: () => onTap(1),
           ),
-          _AddItem(onTap: () => onTap(2)),
           _TabItem(
-            icon: Icons.movie,
-            iconOutline: Icons.movie_outlined,
+            icon: Icons.add_box_outlined,
+            iconOutline: Icons.add_box_outlined,
+            isActive: currentIndex == 2,
+            onTap: () => onTap(2),
+          ),
+          _TabItem(
+            icon: Icons.favorite,
+            iconOutline: Icons.favorite_border,
             isActive: currentIndex == 3,
             onTap: () => onTap(3),
           ),
@@ -87,37 +92,7 @@ class _TabItem extends StatelessWidget {
   }
 }
 
-class _AddItem extends StatelessWidget {
-  final VoidCallback onTap;
-  const _AddItem({required this.onTap});
 
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.only(top: 8),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Container(
-                width: 26,
-                height: 26,
-                decoration: BoxDecoration(
-                  border: Border.all(color: kTextPrimary, width: 2),
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: const Icon(Icons.add, color: kTextPrimary, size: 16),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 class _ProfileItem extends StatelessWidget {
   final String avatarUrl;

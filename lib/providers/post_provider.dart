@@ -10,16 +10,23 @@ class PostProvider extends ChangeNotifier {
   bool get isLoading => _isLoading;
 
   Future<void> loadPosts({int page = 0}) async {
+    if (_isLoading) return;
+    
     if (page == 0) {
       _isLoading = true;
       notifyListeners();
+    } else {
+      _isLoading = true;
     }
+
     final newPosts = await PostRepository.getFeedPosts(page: page);
+    
     if (page == 0) {
       _posts = newPosts;
     } else {
       _posts = [..._posts, ...newPosts];
     }
+    
     _isLoading = false;
     notifyListeners();
   }

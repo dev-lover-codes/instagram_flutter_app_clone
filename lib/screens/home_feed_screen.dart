@@ -17,13 +17,33 @@ class HomeFeedScreen extends StatefulWidget {
 }
 
 class _HomeFeedScreenState extends State<HomeFeedScreen> {
+  final _scrollCtrl = ScrollController();
+  int _page = 0;
+
   @override
   void initState() {
     super.initState();
+    _scrollCtrl.addListener(_onScroll);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<PostProvider>().loadPosts();
       context.read<StoryProvider>().loadStories();
     });
+  }
+
+  @override
+  void dispose() {
+    _scrollCtrl.dispose();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    if (_scrollCtrl.position.pixels >= _scrollCtrl.position.maxScrollExtent - 500) {
+      final postProv = context.read<PostProvider>();
+      if (!postProv.isLoading) {
+        _page++;
+        postProv.loadPosts(page: _page);
+      }
+    }
   }
 
   @override
@@ -35,14 +55,15 @@ class _HomeFeedScreenState extends State<HomeFeedScreen> {
         color: kBlue,
         backgroundColor: kSurface,
         onRefresh: () async {
+          _page = 0;
           await Future.wait([
-            context.read<PostProvider>().loadPosts(),
+            context.read<PostProvider>().loadPosts(page: 0),
             context.read<StoryProvider>().loadStories(),
           ]);
         },
         child: Consumer2<PostProvider, StoryProvider>(
           builder: (context, postProv, storyProv, _) {
-            if (postProv.isLoading) {
+            if (postProv.isLoading && _page == 0) {
               return ListView(
                 children: [
                   // Shimmer stories
@@ -62,6 +83,7 @@ class _HomeFeedScreenState extends State<HomeFeedScreen> {
               );
             }
             return CustomScrollView(
+              controller: _scrollCtrl,
               slivers: [
                 // Stories tray
                 SliverToBoxAdapter(
@@ -90,6 +112,14 @@ class _HomeFeedScreenState extends State<HomeFeedScreen> {
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
+                      if (index == postProv.posts.length) {
+                        return const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 24),
+                          child: Center(
+                            child: CircularProgressIndicator(color: kTextSecondary),
+                          ),
+                        );
+                      }
                       final post = postProv.posts[index];
                       return PostCard(
                         post: post,
@@ -97,7 +127,7 @@ class _HomeFeedScreenState extends State<HomeFeedScreen> {
                         onBookmark: () => postProv.toggleBookmark(post.id),
                       );
                     },
-                    childCount: postProv.posts.length,
+                    childCount: postProv.posts.length + (postProv.isLoading && _page > 0 ? 1 : 0),
                   ),
                 ),
               ],

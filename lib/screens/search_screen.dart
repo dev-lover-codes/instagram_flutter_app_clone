@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '../core/constants/colors.dart';
 import '../services/post_repository.dart';
 
@@ -11,7 +12,6 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   final _ctrl = TextEditingController();
-  bool _focused = false;
 
   @override
   void dispose() {
@@ -69,41 +69,71 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
             // Grid
             Expanded(
-              child: GridView.builder(
+              child: GridView.custom(
                 padding: EdgeInsets.zero,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: SliverQuiltedGridDelegate(
                   crossAxisCount: 3,
                   mainAxisSpacing: 1.5,
                   crossAxisSpacing: 1.5,
+                  repeatPattern: QuiltedGridRepeatPattern.inverted,
+                  pattern: const [
+                    QuiltedGridTile(2, 2),
+                    QuiltedGridTile(1, 1),
+                    QuiltedGridTile(1, 1),
+                    QuiltedGridTile(1, 1),
+                    QuiltedGridTile(1, 1),
+                    QuiltedGridTile(1, 1),
+                  ],
                 ),
-                itemCount: images.length,
-                itemBuilder: (_, i) {
-                  // Instagram explore pattern: large item every 6, spanning 2x2
-                  final isLargeLeft = i % 6 == 0;
-                  final isLargeRight = i % 6 == 4;
-                  return Stack(
-                    fit: StackFit.expand,
-                    children: [
-                      Image.network(
-                        images[i % images.length],
-                        fit: BoxFit.cover,
-                        errorBuilder: (_, __, ___) => Container(color: kShimmerBase),
+                childrenDelegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Scaffold(
+                              backgroundColor: kBackground,
+                              appBar: AppBar(
+                                backgroundColor: kBackground,
+                                title: const Text('Explore', style: TextStyle(color: kTextPrimary)),
+                                iconTheme: const IconThemeData(color: kTextPrimary),
+                              ),
+                              body: Center(
+                                child: Image.network(
+                                  images[index % images.length],
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                      child: Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          Image.network(
+                            images[index % images.length],
+                            fit: BoxFit.cover,
+                            errorBuilder: (_, __, ___) => Container(color: kShimmerBase),
+                          ),
+                          if (index % 3 == 0)
+                            const Positioned(
+                              top: 6,
+                              right: 6,
+                              child: Icon(Icons.play_circle_outline, color: Colors.white, size: 18),
+                            ),
+                          if (index % 5 == 0)
+                            const Positioned(
+                              top: 6,
+                              right: 6,
+                              child: Icon(Icons.layers, color: Colors.white, size: 18),
+                            ),
+                        ],
                       ),
-                      if (i % 3 == 0)
-                        const Positioned(
-                          top: 6,
-                          right: 6,
-                          child: Icon(Icons.play_circle_outline, color: Colors.white, size: 18),
-                        ),
-                      if (i % 5 == 0)
-                        const Positioned(
-                          top: 6,
-                          right: 6,
-                          child: Icon(Icons.layers, color: Colors.white, size: 18),
-                        ),
-                    ],
-                  );
-                },
+                    );
+                  },
+                ),
               ),
             ),
           ],

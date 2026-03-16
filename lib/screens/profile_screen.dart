@@ -15,7 +15,7 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen>
     with SingleTickerProviderStateMixin {
   late final TabController _tabCtrl;
-  final user = StoryRepository.currentUser;
+  final user = StoryRepository.sampleUsers[3]; // Using amalfi_coasts for better match
   final posts = PostRepository.getProfilePosts();
 
   final _highlights = [
@@ -42,72 +42,89 @@ class _ProfileScreenState extends State<ProfileScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBackground,
+      appBar: AppBar(
+        backgroundColor: kBackground,
+        elevation: 0,
+        leading: const Icon(Icons.arrow_back, color: kTextPrimary),
+        title: Text(user.username, style: kSubheading.copyWith(fontSize: 20)),
+        centerTitle: false,
+        actions: [
+          const Icon(Icons.add_box_outlined, color: kTextPrimary),
+          const SizedBox(width: 16),
+          const Icon(Icons.menu, color: kTextPrimary),
+          const SizedBox(width: 12),
+        ],
+      ),
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
-          SliverAppBar(
-            backgroundColor: kBackground,
-            pinned: true,
-            title: Text(user.username, style: kSubheading),
-            actions: [
-              const Icon(Icons.add_box_outlined, color: kTextPrimary),
-              const SizedBox(width: 16),
-              const Icon(Icons.menu, color: kTextPrimary),
-              const SizedBox(width: 12),
-            ],
-          ),
           // Profile header
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Avatar + stats
                   Row(
                     children: [
-                      ClipOval(
-                        child: CachedNetworkImage(
-                          imageUrl: user.avatarUrl,
-                          width: 77,
-                          height: 77,
-                          fit: BoxFit.cover,
-                          placeholder: (_, __) => Container(width: 77, height: 77, color: kShimmerBase),
+                      Container(
+                        width: 86,
+                        height: 86,
+                        padding: const EdgeInsets.all(2),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: kDivider, width: 1),
+                        ),
+                        child: ClipOval(
+                          child: CachedNetworkImage(
+                            imageUrl: user.avatarUrl,
+                            fit: BoxFit.cover,
+                            placeholder: (_, __) => Container(color: kShimmerBase),
+                          ),
                         ),
                       ),
                       Expanded(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            _StatItem(value: '${posts.length}', label: 'Posts'),
-                            _StatItem(value: '340', label: 'Followers'),
-                            _StatItem(value: '280', label: 'Following'),
+                            _StatItem(value: '${user.postCount}', label: 'Posts'),
+                            _StatItem(value: '${user.followerCount}', label: 'Followers'),
+                            _StatItem(value: '${user.followingCount}', label: 'Following'),
                           ],
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 8),
-                  Text(user.displayName, style: kBodyBold),
-                  if (user.bio.isNotEmpty) ...[
-                    const SizedBox(height: 2),
-                    Text(user.bio, style: kCaption),
-                  ],
                   const SizedBox(height: 12),
+                  // Bio
+                  Text(user.displayName, style: kBodyBold),
+                  const SizedBox(height: 2),
+                  Text(user.bio, style: kCaption),
+                  if (user.website.isNotEmpty) ...[
+                    const SizedBox(height: 2),
+                    Text(
+                      user.website,
+                      style: kCaption.copyWith(color: kBlue, fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                  const SizedBox(height: 16),
                   // Edit profile button
                   SizedBox(
                     width: double.infinity,
-                    height: 32,
-                    child: OutlinedButton(
+                    height: 34,
+                    child: ElevatedButton(
                       onPressed: () {},
-                      style: OutlinedButton.styleFrom(
-                        side: const BorderSide(color: Color(0x4DFFFFFF)),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF1A1A1A),
                         foregroundColor: kTextPrimary,
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                         textStyle: kCaptionBold,
                       ),
                       child: const Text('Edit Profile'),
                     ),
                   ),
+                  const SizedBox(height: 16),
                 ],
               ),
             ),
@@ -115,10 +132,10 @@ class _ProfileScreenState extends State<ProfileScreen>
           // Highlights
           SliverToBoxAdapter(
             child: SizedBox(
-              height: 100,
+              height: 105,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 itemCount: _highlights.length,
                 itemBuilder: (_, i) {
                   final h = _highlights[i];
@@ -127,8 +144,9 @@ class _ProfileScreenState extends State<ProfileScreen>
                     child: Column(
                       children: [
                         Container(
-                          width: 56,
-                          height: 56,
+                          width: 64,
+                          height: 64,
+                          padding: const EdgeInsets.all(3),
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             border: Border.all(color: kDivider),
@@ -141,10 +159,10 @@ class _ProfileScreenState extends State<ProfileScreen>
                             ),
                           ),
                         ),
-                        const SizedBox(height: 4),
+                        const SizedBox(height: 6),
                         Text(
                           h['label']!,
-                          style: kTiny.copyWith(color: kTextPrimary),
+                          style: kTiny.copyWith(color: kTextPrimary, fontSize: 12),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ],
@@ -154,6 +172,8 @@ class _ProfileScreenState extends State<ProfileScreen>
               ),
             ),
           ),
+          const SliverToBoxAdapter(child: SizedBox(height: 8)),
+          const SliverToBoxAdapter(child: Divider(height: 1, thickness: 0.5)),
           // Tab bar
           SliverPersistentHeader(
             pinned: true,

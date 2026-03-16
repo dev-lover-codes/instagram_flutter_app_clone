@@ -17,7 +17,7 @@ class PostRepository {
   static Future<List<PostModel>> getFeedPosts({int page = 0}) async {
     await Future.delayed(const Duration(milliseconds: 600));
     final users = StoryRepository.sampleUsers;
-    return [
+    final basePosts = [
       PostModel(
         id: 'p1',
         user: users[3], // amalfi_coasts
@@ -78,6 +78,22 @@ class PostRepository {
         type: PostType.carousel,
       ),
     ];
+    
+    if (page == 0) return basePosts;
+    
+    return basePosts.map((p) => PostModel(
+      id: '${p.id}_page$page',
+      user: p.user,
+      imageUrls: p.imageUrls,
+      caption: p.caption,
+      location: p.location,
+      likeCount: p.likeCount,
+      commentCount: p.commentCount,
+      timestamp: p.timestamp.subtract(Duration(days: page * 5)),
+      isLiked: p.isLiked,
+      type: p.type,
+      likedByUsername: p.likedByUsername,
+    )).toList();
   }
 
   static List<String> getExploreImages() => _postImages;

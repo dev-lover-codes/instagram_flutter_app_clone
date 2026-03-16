@@ -6,6 +6,9 @@
 .DS_Store
 .atom/
 .build/
+.stitch_data/
+.idx/
+.vscode/
 .buildlog/
 .history
 .svn/

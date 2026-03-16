@@ -3,7 +3,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import '../core/constants/colors.dart';
 import '../core/constants/typography.dart';
 import '../models/post_model.dart';
-import '../services/story_repository.dart';
 
 class ReelItem extends StatelessWidget {
   final PostModel reel;
@@ -19,7 +18,6 @@ class ReelItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final h = MediaQuery.of(context).size.height;
     return Stack(
       fit: StackFit.expand,
       children: [

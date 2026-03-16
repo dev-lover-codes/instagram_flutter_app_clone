@@ -4,7 +4,6 @@ import '../widgets/bottom_tab_bar.dart';
 import 'home_feed_screen.dart';
 import 'search_screen.dart';
 import 'reels_screen.dart';
-import 'notifications_screen.dart';
 import 'profile_screen.dart';
 import 'upload_reel_screen.dart';
 
@@ -47,13 +46,7 @@ class _MainScreenState extends State<MainScreen> {
       backgroundColor: kBackground,
       body: IndexedStack(
         index: _currentIndex == 2 ? 0 : _currentIndex > 2 ? _currentIndex - 1 : _currentIndex,
-        children: [
-          const HomeFeedScreen(),
-          const SearchScreen(),
-          const ReelsScreen(),
-          const NotificationsScreen(),
-          const ProfileScreen(),
-        ],
+        children: _screens.where((s) => s is! SizedBox).toList(),
       ),
       bottomNavigationBar: BottomTabBar(
         currentIndex: _currentIndex,

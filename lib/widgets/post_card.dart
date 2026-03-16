@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../core/constants/colors.dart';
+import 'zoomable_image.dart';
 import '../models/post_model.dart';
 import 'post_header.dart';
 import 'post_carousel.dart';
@@ -42,25 +43,34 @@ class _PostCardState extends State<PostCard> {
         ),
         // Image
         if (post.imageUrls.length > 1)
-          PostCarousel(imageUrls: post.imageUrls)
+          PostCarousel(
+            imageUrls: post.imageUrls,
+            onPageChanged: (index) {
+              setState(() {
+                _page = index;
+              });
+            },
+          )
         else
           GestureDetector(
             onDoubleTap: widget.onLike,
-            child: CachedNetworkImage(
-              imageUrl: post.imageUrls.first,
-              width: w,
-              height: w,
-              fit: BoxFit.cover,
-              placeholder: (_, __) => Container(
+            child: ZoomableImage(
+              child: CachedNetworkImage(
+                imageUrl: post.imageUrls.first,
                 width: w,
                 height: w,
-                color: kShimmerBase,
-              ),
-              errorWidget: (_, __, ___) => Container(
-                width: w,
-                height: w,
-                color: kShimmerBase,
-                child: const Icon(Icons.broken_image, color: kTextSecondary),
+                fit: BoxFit.cover,
+                placeholder: (_, __) => Container(
+                  width: w,
+                  height: w,
+                  color: kShimmerBase,
+                ),
+                errorWidget: (_, __, ___) => Container(
+                  width: w,
+                  height: w,
+                  color: kShimmerBase,
+                  child: const Icon(Icons.broken_image, color: kTextSecondary),
+                ),
               ),
             ),
           ),
