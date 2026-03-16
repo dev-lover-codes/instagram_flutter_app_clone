@@ -10,9 +10,9 @@ A feature-rich Instagram clone built with Flutter, focused on premium UI/UX, smo
 | **Profile** | **Search** | **Upload Reel** |
 | ![Profile](docs/screenshots/profile.png) | ![Search](docs/screenshots/search.png) | ![Upload Reel](docs/screenshots/upload.png) |
 
-## 🎥 Demo Video Link
+## 🎥 Demo Video
 
-[Click here to watch the Demo Video](https://your-video-link-placeholder.com)
+[Click here to watch the Demo Video](docs/Project%20sample%20video.mp4)
 
 *   ✨ **Shimmer Loading**: Beautiful skeletons for data fetching states.
 *   🔄 **Infinite Scroll**: Seamlessly loading content as you scroll down.
