@@ -6,13 +6,13 @@ A feature-rich Instagram clone built with Flutter, focused on premium UI/UX, smo
 
 | Home Feed | Reels | Notifications |
 | :---: | :---: | :---: |
-| ![Home Feed Placeholder](https://via.placeholder.com/200x400?text=Home+Feed) | ![Reels Placeholder](https://via.placeholder.com/200x400?text=Reels) | ![Notifications Placeholder](https://via.placeholder.com/200x400?text=Notifications) |
+| ![Home Feed](docs/screenshots/home_feed.png) | ![Reels](docs/screenshots/reels.png) | ![Notifications](docs/screenshots/notifications.png) |
 | **Profile** | **Search** | **Upload Reel** |
-| ![Profile Placeholder](https://via.placeholder.com/200x400?text=Profile) | ![Search Placeholder](https://via.placeholder.com/200x400?text=Search) | ![Upload Placeholder](https://via.placeholder.com/200x400?text=Upload+Reel) |
+| ![Profile](docs/screenshots/profile.png) | ![Search](docs/screenshots/search.png) | ![Upload Reel](docs/screenshots/upload.png) |
 
-## 🎥 Demo Video
+## 🎥 Demo Video Link
 
-[Watch the Demo Video](https://your-video-link-placeholder.com)
+[Click here to watch the Demo Video](https://your-video-link-placeholder.com)
 
 *   ✨ **Shimmer Loading**: Beautiful skeletons for data fetching states.
 *   🔄 **Infinite Scroll**: Seamlessly loading content as you scroll down.
@@ -53,7 +53,7 @@ A feature-rich Instagram clone built with Flutter, focused on premium UI/UX, smo
     flutter build apk --release
     ```
 
-## 🧠 State Management: Riverpod
+## 🧠 State Management
 
 Riverpod was chosen as the primary state management solution for this project due to its robustness and flexibility.
 
@@ -67,14 +67,12 @@ Riverpod was chosen as the primary state management solution for this project du
 
 ```text
 lib/
-├── core/                # Core configurations and app settings
-│   ├── constants/       # Design tokens (colors, typography, spacing)
-│   └── theme/           # Global Material 3 theme definitions
-├── models/              # Data structures and domain entities
+├── core/                # Core configurations and app settings (Colors, Typography, Themes)
+├── models/              # Data structures and domain entities (Post, User, Story)
 ├── providers/           # Riverpod state providers and business logic
 ├── screens/             # Main application pages and screen layouts
-├── services/            # Repositories and data fetching mock services
-├── widgets/             # Reusable UI components and complex widgets
+├── services/            # Repositories and data fetching services
+├── widgets/             # Reusable UI components (PostCard, StoriesTray, etc.)
 └── main.dart            # Application entry point and provider setup
 ```
 
