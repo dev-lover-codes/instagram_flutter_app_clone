@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0095F6",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#000000",
+                        "border-dark": "#262626",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .ios-toggle {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+        .ios-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #363636;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #0095F6;
+        }
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 flex justify-center items-center min-h-screen">
+<!-- Mobile Container (375x812px) -->
+<div class="relative w-[375px] h-[812px] bg-background-light dark:bg-background-dark overflow-hidden flex flex-col shadow-2xl">
+<!-- TopAppBar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark px-4 py-3 justify-between border-b border-slate-200 dark:border-border-dark">
+<div class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-[16px] font-bold leading-tight tracking-tight flex-1 text-center">New Reel</h2>
+<div class="flex size-10 items-center justify-end cursor-pointer">
+<p class="text-primary text-[16px] font-bold leading-normal">Share</p>
+</div>
+</div>
+<!-- Scrollable Content Area -->
+<div class="flex-1 overflow-y-auto">
+<!-- Top Preview & Caption Section -->
+<div class="flex gap-4 bg-background-light dark:bg-background-dark px-4 py-5 items-start">
+<div class="shrink-0">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[72px] border border-slate-200 dark:border-border-dark" data-alt="A vertical video frame thumbnail of a cinematic nature scene" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAFA4JZvdmDF3MFoZ1tTuGLTUhwCHOC16vMGGyFciEZqCu8PIMFEqYm_nXYKVIqY4MfRQOyCxRV8JCuWizUQr8e0tXlmhLlKYqlMK4UcHqebQYdwVcUhBvH_nQnwGJsGrYG08dUG7D8LRu8qKHw8mr9naBW6sq6fqtkpraUfltZGvkwHKlwyiLmDO82uFOvm02McJBuhBN-VJiYN2HMLTbKBRreZxbxburCMRVX2edWVQg4FBJ8UxS3VUW7vWsaFC6e4roHktzKq5c");'></div>
+</div>
+<div class="flex-1 min-h-[72px]">
+<textarea class="w-full bg-transparent border-none focus:ring-0 p-0 text-[15px] placeholder-slate-400 dark:placeholder-slate-500 text-slate-900 dark:text-slate-100 resize-none leading-normal h-full" placeholder="Write a caption..."></textarea>
+</div>
+</div>
+<!-- Tagging Section -->
+<div class="mt-2">
+<!-- Row: Tag People -->
+<div class="flex items-center gap-3 bg-background-light dark:bg-background-dark px-4 min-h-[52px] justify-between cursor-pointer active:bg-slate-100 dark:active:bg-zinc-900">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100 text-[24px]">person</span>
+<p class="text-slate-900 dark:text-slate-100 text-[15px] font-normal leading-normal">Tag People</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500 text-[20px]">chevron_right</span>
+</div>
+<div class="mx-4 h-[0.5px] bg-slate-200 dark:bg-border-dark"></div>
+<!-- Row: Add Location -->
+<div class="flex items-center gap-3 bg-background-light dark:bg-background-dark px-4 min-h-[52px] justify-between cursor-pointer active:bg-slate-100 dark:active:bg-zinc-900">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100 text-[24px]">location_on</span>
+<p class="text-slate-900 dark:text-slate-100 text-[15px] font-normal leading-normal">Add Location</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500 text-[20px]">chevron_right</span>
+</div>
+<div class="mx-4 h-[0.5px] bg-slate-200 dark:bg-border-dark"></div>
+<!-- Row: Add Topic -->
+<div class="flex items-center gap-3 bg-background-light dark:bg-background-dark px-4 min-h-[52px] justify-between cursor-pointer active:bg-slate-100 dark:active:bg-zinc-900">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100 text-[24px]">tag</span>
+<p class="text-slate-900 dark:text-slate-100 text-[15px] font-normal leading-normal">Add Topic</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500 text-[20px]">chevron_right</span>
+</div>
+</div>
+<!-- Also Share To Section -->
+<div class="mt-8 px-4">
+<h3 class="text-slate-400 dark:text-slate-500 text-[14px] font-medium mb-4">Also share to</h3>
+<div class="flex items-center justify-between py-2">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-blue-600 flex items-center justify-center">
+<svg class="text-white w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+</svg>
+</div>
+<div>
+<p class="text-slate-900 dark:text-slate-100 text-[15px] font-medium">Facebook</p>
+<p class="text-slate-400 dark:text-slate-500 text-[12px]">Share your reel to Facebook</p>
+</div>
+</div>
+<label class="ios-toggle">
+<input type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+</div>
+</div>
+<!-- Advanced Settings Footer -->
+<div class="border-t border-slate-200 dark:border-border-dark mb-8">
+<div class="flex items-center gap-3 bg-background-light dark:bg-background-dark px-4 min-h-[56px] justify-between cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100 text-[24px]">settings</span>
+<p class="text-slate-900 dark:text-slate-100 text-[15px] font-normal leading-normal">Advanced Settings</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500 text-[20px]">chevron_right</span>
+</div>
+</div>
+<!-- iOS Home Indicator -->
+<div class="h-1.5 w-32 bg-slate-300 dark:bg-zinc-800 rounded-full mx-auto mb-2 shrink-0"></div>
+</div>
+</body></html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reels Viewer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#000000",
+                        "ig-black": "#000000",
+                        "ig-elevated": "#121212",
+                        "ig-border": "rgba(255, 255, 255, 0.15)",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-filled {
+            font-family: 'Material Symbols Outlined';
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-dark font-display antialiased overflow-hidden">
+<div class="relative mx-auto w-[375px] h-[812px] bg-black overflow-hidden flex flex-col shadow-2xl">
+<div class="absolute inset-0 z-0 bg-cover bg-center" data-alt="Vertical video of a person photographing mountains at sunset" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB1Ep_ohvN1hhRMpOa3H9RIUvQXIuEXuINljLeJivkBxstNwx8-3zTN4bUj3B7a9MNDFwSMqIT1rI9P1Vg-IHRtIljFyaehub_KTYBQThOg9amYy5G-4OocNU907iFKdwOgwQbnBuYYo6ZLTh4PnJd7vZFCPto5n3uPe_RBql9vo_t1N9pNw-55S4UEugHuX20PfwL9VaLGQMlPJwoM3cTDRBSLzDTG92D8_GkjWrNNjb34WCA5VXazhKnml2rFSA7yospASWJV68g');">
+<div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
+</div>
+<div class="relative z-10 flex items-center justify-between px-4 pt-[54px]">
+<div class="w-10"></div>
+<h1 class="text-white text-[16px] font-semibold">Reels</h1>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-white text-[24px]">photo_camera</span>
+<span class="material-symbols-outlined text-white text-[24px]">more_vert</span>
+</div>
+</div>
+<div class="flex-grow"></div>
+<div class="relative z-10 flex flex-col items-end gap-6 px-3 mb-10">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-white text-[28px]">favorite</span>
+<span class="text-white text-[12px] font-medium">44.6K</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-white text-[28px]">chat_bubble</span>
+<span class="text-white text-[12px] font-medium">1,234</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-white text-[28px]">send</span>
+<span class="text-white text-[12px] font-medium">Share</span>
+</div>
+<span class="material-symbols-outlined text-white text-[28px]">more_horiz</span>
+<div class="mt-2 relative">
+<div class="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-slate-800 flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Small circular album art of a sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqEa5Nnc_ms0xHohjUu2RCaYHwt9w5n4xjbtKIoKuAcrzBCAAQ2nrysf5Une3qLycLAI7Pw5FXXakhjo05La5hMFXwfNuGhhObOSLEy65WvCk0HiQt3WZyq6R-gQtmzmhHSHJ1aaOQMrBv4Yo264hRN5LI8fINJnhIU5kIc21kNvRrMWk0UIdbWgnaWAG0hRfYjEC9MLqhzBBwa4dfDNVclz9doJt6b_GyXA57m1ULpxwWapN7BcBF1rL-Rqv56BMUSa9IzD6sxDQ"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-white rounded-full p-0.5">
+<span class="material-symbols-outlined text-black text-[10px] block">music_note</span>
+</div>
+</div>
+</div>
+<div class="relative z-10 px-4 pb-4 w-full">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-slate-700 border border-white/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar of a smiling man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbwSViePMBThxxgSJjm41W7E9CAWY07Me-grp07kPZQowzlsnH4zsUKmP-8u1go5eNBcPDAaQFCi3dwL8hDk3bflu4uqw8PjGQnQaDyRB_v1vsJsY4A3RZgXOR62OWsVhpuHRhgnXeP3_zjntJzQ_0xp_VLDa5ESdf-1uh9K3mAplRGZurOQ6gvafgjJE4rYKcr8c5vULx1hda3xvF5aFFdXxJNndFhqYAcxPIzQJAuPKSyrqRVcDi6JswlrGV4KMgVgWa4_bSmfU"/>
+</div>
+<span class="text-white text-[15px] font-semibold">@joshua_l</span>
+<button class="border border-white text-white text-[13px] font-semibold px-2 py-0.5 rounded-[4px] min-w-[68px] h-[26px]">Follow</button>
+</div>
+<div class="text-white text-[14px] mb-3 max-w-[85%]">
+<p class="line-clamp-2">Golden hour hits different in the mountains. Capturing the peace and the light... <span class="text-white/60 font-medium">more</span></p>
+</div>
+<div class="flex items-center gap-2 overflow-hidden whitespace-nowrap">
+<span class="material-symbols-outlined text-white text-[14px]">music_note</span>
+<div class="text-white text-[13px] flex gap-4">
+<span>Original Audio - joshua_l</span>
+<span class="opacity-50">•</span>
+<span>Original Audio - joshua_l</span>
+</div>
+</div>
+</div>
+<div class="relative z-10 w-full px-0 mb-0">
+<div class="relative h-[2px] w-full bg-white/30">
+<div class="absolute h-full w-[45%] bg-white"></div>
+<div class="absolute top-1/2 left-[45%] -translate-y-1/2 w-2 h-2 rounded-full bg-white"></div>
+</div>
+</div>
+<nav class="h-[79px] bg-ig-elevated border-t-[0.33px] border-ig-border px-6 pt-2 pb-6 flex items-start justify-between relative z-10" data-purpose="bottom-navigation">
+<!-- Home -->
+<button class="p-2">
+<svg fill="none" height="24" stroke="white" stroke-width="2" viewbox="0 0 24 24" width="24">
+<path d="M12 2L3 10.5V21H9V14H15V21H21V10.5L12 2Z"></path>
+</svg>
+</button>
+<!-- Search -->
+<button class="p-2">
+<svg fill="none" height="24" stroke="white" stroke-width="2" viewbox="0 0 24 24" width="24">
+<circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+</svg>
+</button>
+<!-- Reels (Filled - Active) -->
+<button class="p-2">
+<svg fill="white" height="24" viewbox="0 0 24 24" width="24">
+<rect height="18" rx="5" width="18" x="3" y="3"></rect>
+<line x1="12" x2="12" y1="8" y2="16"></line>
+<line x1="8" x2="16" y1="12" y2="12"></line>
+<path d="M10 10l5 2-5 2V10z" fill="white"></path>
+</svg>
+</button>
+<!-- Activity -->
+<button class="p-2">
+<svg fill="none" height="24" stroke="white" stroke-width="2" viewbox="0 0 24 24" width="24">
+<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+</svg>
+</button>
+<!-- Profile -->
+<button class="p-2">
+<div class="w-6 h-6 rounded-full overflow-hidden border border-white/50">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmckJHefUZirKXjd0SWXMsjWc5ZFtKYBhYxE8WhdHrTX_cFzX5hdkhWNsW6tHA-xNfEazHn5nTqnnh6PWvz6aaQd_38JbV1Ru6sYj6hkJx-63SCqf7Df_TyyXmEubM6mSI1vis7lG3yX5hUjiUNnByuOAMVrYYunQ73K0Ct9hkuKcW93wMnZEB31lpshTQVSeVczgUMkgW8Ft1gRlZ1OtfxdQK_b9UTnvVNpdFlTNXAhSQHy5EmfOQ4FyX0Dq6vGEgF8u-yOkACDk"/>
+</div>
+</button>
+</nav>
+</div>
+</body></html>

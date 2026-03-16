@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0095F6",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#000000",
+                        "surface-dark": "#121212",
+                        "card-dark": "#1A1A1A",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<!-- Mobile Container (375x812 aspect simulation) -->
+<div class="relative mx-auto min-h-screen max-w-[375px] bg-background-dark flex flex-col shadow-2xl">
+<!-- Top Bar (Height approx 88px including status bar area) -->
+<header class="sticky top-0 z-20 flex h-[88px] items-end justify-between bg-surface-dark px-4 pb-3 border-b border-white/10">
+<button class="flex items-center justify-center p-1">
+<span class="material-symbols-outlined text-white text-2xl">close</span>
+</button>
+<h1 class="text-base font-semibold text-white mb-1">New Reel</h1>
+<button class="text-primary font-bold text-base mb-1">Next</button>
+</header>
+<!-- Main Content Area (Scrollable) -->
+<main class="flex-1 overflow-y-auto custom-scrollbar pb-20">
+<!-- Preview Area -->
+<div class="relative w-full h-[320px] bg-card-dark flex items-center justify-center overflow-hidden">
+<!-- Video Preview Placeholder -->
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/40" data-alt="Cinematic neon city street at night" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYB_mMd_v7codWFxwGnYBNXOf--wG5IjekdzPeICWZsI67x1d4lqkOCWjODHUj3c8L_PhRoQcsONuuFMEvVMgrh62Rtr4sDKY1sDa88RC6A6ZAE7pI9EHoPLk1X4oRlc43Cr9o0mNvGZ5WMkZxKKvBYNIThntFLiV7etvYFh7wqrQWOJxhZXdnBRMRmb-sBvtfpAYcRNxf9KH_P-l2PtSIh4StDO9rvQd-4_qZMplv9OQsH3_9y1PmR3HfPcCwn83Iq6EBX50gyfA'); background-size: cover; background-position: center;">
+</div>
+<!-- Play Icon Overlay -->
+<div class="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-black/30 backdrop-blur-sm border border-white/20">
+<span class="material-symbols-outlined text-white text-4xl fill-1">play_arrow</span>
+</div>
+<!-- Duration Badge -->
+<div class="absolute bottom-4 left-4 rounded-full bg-black/60 px-2 py-1 backdrop-blur-md border border-white/10">
+<span class="text-xs font-semibold text-white">0:24</span>
+</div>
+</div>
+<!-- Gallery Selector Header -->
+<div class="flex items-center justify-between px-4 py-4 bg-background-dark">
+<button class="flex items-center gap-1 group">
+<span class="text-sm font-bold text-white group-active:opacity-70">Recents</span>
+<span class="material-symbols-outlined text-white text-lg leading-none">expand_more</span>
+</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-full bg-surface-dark border border-white/10">
+<span class="material-symbols-outlined text-white text-xl">content_copy</span>
+</button>
+</div>
+<!-- Gallery Grid (3 columns) -->
+<div class="grid grid-cols-3 gap-[1px] bg-white/10">
+<!-- Active Item -->
+<div class="relative aspect-square overflow-hidden group border-2 border-primary">
+<div class="h-full w-full bg-card-dark" data-alt="Close up of neon lights" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBlylsZOWD53c_l1IOLQ0pLEUnhBlsycAW9wIQCmR90GqFDWKD5N8HpjvN8OzSUZCdJsXarbaokCMDuBTvxYX-YmYPxvUnw-_7pOLULBAfCg77gNuUaffVWWaEsJ9Lcs2N4ghEuczetym0fgkITRlC5qlXX_pBjMlYJzsWRw1lhxcIGQfCHA62gXFcXNffutAdE6zAqIhpd85nhBYdFsWdJ8u6yy_o2Ra99q9Gc0vh1QYPIGKUnikJqEAxOfF_PFM4icIaTCRJk6zs'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-black/20"></div>
+<!-- Selected Checkmark -->
+<div class="absolute top-2 right-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary border border-white">
+<span class="material-symbols-outlined text-white text-sm font-bold">check</span>
+</div>
+<!-- Duration -->
+<div class="absolute bottom-1 right-1">
+<span class="text-[10px] font-bold text-white drop-shadow-md">0:24</span>
+</div>
+</div>
+</div>
+<!-- Grid Item 2 -->
+<div class="relative aspect-square overflow-hidden">
+<div class="h-full w-full bg-card-dark" data-alt="Retro tech hardware aesthetic" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2Ti3mr3MknqvhFrJiZutPp4TqzOjckdG5MG4FBa3q9BFoln8hvtS50zfd-1n_3JS06shxkfvODZaFC8jThTfX8VECJpHc1FM5QcRC1gRIU9WjLpeE8bsHf-j6FM2F-t0MKiH9d3jphUGJzFqqE9zWIhxF9mcQqUkKBj5wnGcAyJ-u7K5jn-_uWf-RxTZDyNONAz2gTHZFhXTI8ZpXG8etJNLLY73mXbpmmbbw86dKbJkh_rTVxWOom2cVbSUkEsQE_MnLEzjoonQ'); background-size: cover; background-position: center;">
+<div class="absolute bottom-1 right-1">
+<span class="text-[10px] font-bold text-white drop-shadow-md">0:15</span>
+</div>
+</div>
+</div>
+<!-- Grid Item 3 -->
+<div class="relative aspect-square overflow-hidden">
+<div class="h-full w-full bg-card-dark" data-alt="Abstract colorful light trails" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDP0hSBpWtFLZ9yo7IMF1fmRiRKfYOCkOc8ZkQnUVf5aFeRo7kdFxJVy61G2kg9BoN8oATJ2R2n1jf0IkG_N4RiqO6O1UtEh5NqA2Eqrztg-WTbwt5DPF0VJaTj__HtT96SI-CmaPGJJI5LcmprBo2Pio5q1QK6BV3lLKqUOWo9iQmL-njrTlJw16MnonNOnMpQ8-IubcJHTwYQP-6j8pnbBEdB5wIk30SrvFkmNIFeqQRJfLbHVkoKmj7zGOvTpvzcYkoJA4aLyU'); background-size: cover; background-position: center;">
+<div class="absolute bottom-1 right-1">
+<span class="text-[10px] font-bold text-white drop-shadow-md">0:09</span>
+</div>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="relative aspect-square overflow-hidden">
+<div class="h-full w-full bg-card-dark" data-alt="Busy urban street crossing" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3uqShPLGPMFvfSEQSk2CKGfF3ShrgSIMPY8RcxcowWZI0WsYcT4Nrlb3vpv15oVghQHCLlWFRqyo9P2XKR57RZAUCYXmvztPFWt05dJtmwNYAIzcFJ1SGcXjCKLKqfQYa2LqnJNnwbln7Kj6M_HuBkoPyR_8MEpwvWS8JCZMqEjkZ-grXclNAVrPpjUmzL480GesnTpKup17Wtx60VOyeJEUjH8r9yaz55l14rgdVk0ra6naVCMaL-5swi1JFlSKy0B1sWIJ3Y_k'); background-size: cover; background-position: center;">
+<div class="absolute bottom-1 right-1">
+<span class="text-[10px] font-bold text-white drop-shadow-md">0:32</span>
+</div>
+</div>
+</div>
+<div class="relative aspect-square overflow-hidden">
+<div class="h-full w-full bg-card-dark" data-alt="Minimal product photography aesthetic" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBG-vIjuwMRF7H0BOtydNmYwvL_CY1SLjt9uW5RxRx7eYBy-smoH1J9_xR6fp-ckKqIwNkIVjYc2DNykjKPF8zzO1UAye8Lodf6JnIZjkG8LtNCmLywfeqGrBk9e1Etiyc1DSSh97OmqUAvfMU61j9-tl7vXHx_utcId1tBluFwh04Dzmkiwb9wyuNB3x9E6_1ZA_s6U3g9Q4RHjrenjFW2gzPjsenG-BZW3hDcMJF7MO5L4stBhHPVUJUO_1HNo2r5jZIq3YefecE'); background-size: cover; background-position: center;">
+<div class="absolute bottom-1 right-1">
+<span class="text-[10px] font-bold text-white drop-shadow-md">0:12</span>
+</div>
+</div>
+</div>
+<div class="relative aspect-square overflow-hidden">
+<div class="h-full w-full bg-card-dark" data-alt="Forest mountain landscape aerial view" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSye-hX1biHSFdpwjCdjoDPNVlWJkjXwSOozwyBgQz-uGICmRFmGYsblI3c8F-ud8LGC8G0GJuREeswvzqMrLCwRK7L4oVe7Zstnx_JubsiSZUzfxkftPB3D5fyIA_PUpqFvDs_Hgf-X2cSUljY8KvnTei158tYKMhUbpcjrsogrimL5vmr0m8pUDKAjGY9fC65Lc0dvxOYXEwsOMcVLA0xU_nLfWRv6gq8U1H1Cnch-rk5SzGwOvnYwUzobRcUWK-m99lhaUBCCs'); background-size: cover; background-position: center;">
+<div class="absolute bottom-1 right-1">
+<span class="text-[10px] font-bold text-white drop-shadow-md">0:05</span>
+</div>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="relative aspect-square overflow-hidden">
+<div class="h-full w-full bg-card-dark" data-alt="Glowing computer chip circuit board" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAqPshM_Wjb_bkyfPhqW8BmEIPtLbRJmi-I3O1-yqqLleP_e7PAVEw2mjLD7BuC2osaxho_iu_ZyMHcqdSEox2CGefMIOBbU7HnqxLYmQdI44KnK7N9nXuVxn3c4RfisIGXmzKlIwT1vZ8HzqqhPFCIFSpd1ZK-wxj5pbijxWep32fphr5-i79nR6iGRU9A3l3fjLMbPZwGYc0YpWG2AQLsdvsQOLA9LxZrDL3F0wQq5LutQFlevOO_5bpjVxXHBmUkI6HbDERPQss'); background-size: cover; background-position: center;">
+<div class="absolute bottom-1 right-1">
+<span class="text-[10px] font-bold text-white drop-shadow-md">0:18</span>
+</div>
+</div>
+</div>
+<div class="relative aspect-square overflow-hidden">
+<div class="h-full w-full bg-card-dark" data-alt="Future technology laptop glow" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCkTttMDac3a7PUS3cJE5y6vrqCwzUOq7u_3bwUV_iVNPnGGPDb7Id75YQ-T1aBzsZL8s7HsMAMqVdY7sFt3RY8lnNgG9Wbxgx5xS6YBT6nF_zl7u9oDHB0k1iA9qNiNMtijvMBgTatZcOY3kSZlnU8zqnnoZl3EUk2TN-q9Eu14AE9RC6dkyulVY_k7K2ot1Fw2HoRf7CpsTLdt1DkMCj_UlglilBOpEz0exM2-ZVvkITS0mowb9qH7OvDn0ShWfg4IrpCQ5wqDrU'); background-size: cover; background-position: center;">
+<div class="absolute bottom-1 right-1">
+<span class="text-[10px] font-bold text-white drop-shadow-md">0:44</span>
+</div>
+</div>
+</div>
+<div class="relative aspect-square overflow-hidden">
+<div class="h-full w-full bg-card-dark" data-alt="Office workspace with vibrant lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVdqXjmeozWNuRlVeO8roz-Id7G4PYz9kdxDQ5hKZZBOOiUrzXLU_Jr4xqLYX8HHyt24sab2peNORFMNMPTQ0oocVJwU1tcVsww6eycGqdQyWvpkNLsSIvvajFbZ1IvDLJUQSwRDJ--GP8Kp1KJW-GwzFwfvGJhxSnr2FiPDyGod_RE2CC6gWuiYPBZ3bMCQf3UblEGXNEY-RcLE3HB5Xb74GW3O80EHrZDDgMyx1i6E8IB2AuFT7DDzcUkW9a5oQRUU9F3JkSoso'); background-size: cover; background-position: center;">
+<div class="absolute bottom-1 right-1">
+<span class="text-[10px] font-bold text-white drop-shadow-md">0:21</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Simplified Instagram Style) -->
+<nav class="absolute bottom-0 left-0 right-0 z-30 flex h-16 items-center border-t border-white/10 bg-surface-dark px-6">
+<div class="flex w-full items-center justify-between">
+<a class="flex flex-col items-center justify-center text-white/50" href="#">
+<span class="material-symbols-outlined">home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/50" href="#">
+<span class="material-symbols-outlined">search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white" href="#">
+<span class="material-symbols-outlined border-2 border-white rounded-lg p-0.5 scale-90">add_box</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/50" href="#">
+<span class="material-symbols-outlined">video_library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/50" href="#">
+<div class="h-6 w-6 rounded-full border-2 border-white/50 bg-primary/20 flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-xs">person</span>
+</div>
+</a>
+</div>
+</nav>
+<!-- Floating Camera Button -->
+<button class="absolute bottom-20 left-4 z-40 flex h-12 w-32 items-center justify-center gap-2 rounded-full bg-surface-dark/90 text-white backdrop-blur-md border border-white/20 shadow-xl">
+<span class="material-symbols-outlined text-xl">photo_camera</span>
+<span class="text-sm font-semibold">Camera</span>
+</button>
+</div>
+</body></html>

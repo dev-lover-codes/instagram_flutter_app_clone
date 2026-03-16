@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #121212;
+        }
+        .story-container {
+            width: 375px;
+            height: 812px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .glass-input {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display">
+<!-- Mobile Screen Wrapper (375x812) -->
+<div class="story-container bg-background-dark relative">
+<!-- Full-bleed Background Image -->
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A beautiful sunset over a tropical beach with palm trees" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB9E7s3JK4jPdzbclb-WExVk64pMfOECwu0btUSvO4e1fdU54CjOZ2z_UnPsRbakIxePhNnJziAQwLTkscFBjp6jb-YdtiMTeaARkGolCUj6WA2-oaXNcIj6IqO4bSdt4BLfa-1jJ7PpiTS8F1pI_xcHym-_7I8JV7EiAAiDM2Fzxemk1odK79wwEHR8b6eldsvxWpZEUHjjWXgwXk7SMfbaHyIhAA-Z1Lls33AyQVkP3nKEuUBHerZuu_7SoApUX79u6jLzshaREE');">
+<!-- Dark Overlay for Readability -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
+</div>
+<!-- TOP SECTION -->
+<div class="absolute top-0 left-0 w-full pt-4 px-4 z-10">
+<!-- Segmented Progress Bars -->
+<div class="flex gap-1 w-full h-[2px]">
+<div class="flex-1 bg-white rounded-full"></div>
+<div class="flex-1 bg-white/40 rounded-full"></div>
+<div class="flex-1 bg-white/40 rounded-full"></div>
+<div class="flex-1 bg-white/40 rounded-full"></div>
+</div>
+<!-- Header Row -->
+<div class="flex items-center justify-between mt-3">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full border border-white/20 bg-cover bg-center" data-alt="Close up portrait of a young traveler smiling" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_KHVFX3ag30_k0N9TYVDOjqM2CR6e8J8lFsZYn8LZHL8Dt6fHcgXItP2wJOGNlVcj1uiRN2awe2dLW59-l-Fd3gasSusnefsyQEJdVeDxNETGy-0q9rqu8e8X5vhEP_iJu-qSdAF03I_H-J5vc_88zcAym2vBTAShu3LGAMdh1kvqYRTdBkjQJhXGJcOvGTG82XSO2em2WE4mij3ZpNc2Sry7vSzmUWwkv5rDfnEgFREdSRF4GvlspfQFKK1EX3bsjGFmLDMuGPI');"></div>
+<div class="flex items-center gap-2">
+<span class="text-white text-[14px] font-semibold">travel_explorer</span>
+<span class="text-white/70 text-[13px]">2h</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-white">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</button>
+<button class="text-white">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- BOTTOM SECTION -->
+<div class="absolute bottom-0 left-0 w-full pb-8 px-4 z-10">
+<!-- Send Message & Reaction Icons -->
+<div class="flex flex-col gap-6">
+<!-- Input and Send -->
+<div class="flex items-center gap-4">
+<div class="flex-1 h-12 rounded-full border border-white/60 flex items-center px-5">
+<span class="text-white/70 text-sm">Send message...</span>
+</div>
+<button class="text-white p-1">
+<span class="material-symbols-outlined text-[28px]">send</span>
+</button>
+<button class="text-white p-1">
+<span class="material-symbols-outlined text-[28px]">more_horiz</span>
+</button>
+</div>
+<!-- Quick Reactions -->
+<div class="flex justify-between items-center px-2">
+<button class="text-2xl transition-transform active:scale-125">❤️</button>
+<button class="text-2xl transition-transform active:scale-125">🙌</button>
+<button class="text-2xl transition-transform active:scale-125">🔥</button>
+<button class="text-2xl transition-transform active:scale-125">👏</button>
+<button class="text-2xl transition-transform active:scale-125">😢</button>
+<button class="text-2xl transition-transform active:scale-125">😮</button>
+<button class="text-2xl transition-transform active:scale-125">😂</button>
+<button class="text-2xl transition-transform active:scale-125">😍</button>
+</div>
+</div>
+</div>
+<!-- Interactive Areas (Invisible) -->
+<div class="absolute inset-y-0 left-0 w-1/4 z-0"></div>
+<div class="absolute inset-y-0 right-0 w-1/4 z-0"></div>
+</div>
+</body></html>

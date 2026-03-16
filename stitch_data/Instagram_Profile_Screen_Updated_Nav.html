@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#000000",
+                        'ig-black': '#000000',
+                        'ig-elevated': '#121212',
+                        'ig-border': 'rgba(255, 255, 255, 0.15)',
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-dark font-display text-slate-100 antialiased">
+<div class="mx-auto max-w-[375px] min-h-screen flex flex-col bg-background-dark border-x border-white/10">
+<!-- Top Bar -->
+<header class="flex items-center justify-between px-4 h-11 sticky top-0 bg-background-dark z-10">
+<span class="material-symbols-outlined text-slate-100 cursor-pointer">arrow_back</span>
+<h1 class="text-base font-semibold text-slate-100 tracking-tight">amalfi_coasts</h1>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-100 cursor-pointer">add_box</span>
+<span class="material-symbols-outlined text-slate-100 cursor-pointer">more_vert</span>
+</div>
+</header>
+<!-- Profile Header -->
+<section class="px-4 pt-4 pb-2">
+<div class="flex items-center justify-between mb-4">
+<div class="relative w-[77px] h-[77px] rounded-full overflow-hidden border border-white/10">
+<img alt="Profile picture of Amalfi Coast landscape" class="w-full h-full object-cover" data-alt="Stunning aerial view of colorful Amalfi Coast houses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu85kfx7KGNlUPnAqcjIXasAAV95fMMFHHJ4g2-osuc5i2bYa1ZUnHla6hZbELY7duwEipDpTicB1LBDpbnb5-c1rhTDDpsQve_2magf-r9rJ4em89rgXPCwN1jDeVeVK6TGjjefnVJpQFO3k76cv2EPr23JSxQe8tunROBS-Mfz5XSNyUKgTcgNTO7eFPKgs5lRwAIHg2BJuOqcwiRRb6dLwtqA1mj-OSMCqYjy7kh7Pbe5VkiQGXBPqF8SbUqj1c95YrBwiGOi0"/>
+</div>
+<div class="flex flex-1 justify-around ml-4">
+<div class="text-center">
+<p class="text-base font-semibold text-slate-100">84</p>
+<p class="text-[13px] text-slate-100/70">Posts</p>
+</div>
+<div class="text-center">
+<p class="text-base font-semibold text-slate-100">843</p>
+<p class="text-[13px] text-slate-100/70">Followers</p>
+</div>
+<div class="text-center">
+<p class="text-base font-semibold text-slate-100">456</p>
+<p class="text-[13px] text-slate-100/70">Following</p>
+</div>
+</div>
+</div>
+<div class="space-y-0.5">
+<h2 class="text-sm font-semibold text-slate-100">Amalfi Coasts</h2>
+<p class="text-sm text-slate-100 leading-tight">Exploring the hidden gems of the Mediterranean. Summer never ends here! 🍋🇮🇹</p>
+<a class="text-sm font-normal text-[#0095F6] block" href="#">amalficoasts.com</a>
+</div>
+</section>
+<!-- Buttons Row -->
+<div class="px-4 py-3">
+<button class="w-full h-8 flex items-center justify-center border border-white/30 rounded-lg bg-transparent text-sm font-semibold text-slate-100">
+                Edit Profile
+            </button>
+</div>
+<!-- Story Highlights -->
+<div class="flex overflow-x-auto px-4 py-2 gap-5 no-scrollbar">
+<div class="flex flex-col items-center gap-1.5 min-w-[56px]">
+<div class="w-14 h-14 rounded-full p-[2px] border border-white/30">
+<img alt="Italy highlight" class="w-full h-full rounded-full object-cover" data-alt="Venice canal with gondola sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXFBO_uWojInoWUDjU8AzzLkycCje5Ilpn8caya-DveHsr2jIRjHNANxaCmiaYLyM7ztGX1XBorWq1n_YuUTATKtSlu9LVS3xgAQy51DUND0npeM-o8GI6yr0s5lNuDW3UE_oWxnQqHY-Eb_Br4yTU05Zu60Ikh2fDj62dCXlfJkO6hAnhwgOxUyfQmbAkDqTh-k9E_asAnXKQB9vNMTtd85f57fAP_ndzKGxpFGEmOLDOFXusMo8xEMrdK-yRhJTGoHiTf1je7Fk"/>
+</div>
+<span class="text-[12px] text-slate-100 truncate w-14 text-center">Italy</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 min-w-[56px]">
+<div class="w-14 h-14 rounded-full p-[2px] border border-white/30">
+<img alt="Food highlight" class="w-full h-full rounded-full object-cover" data-alt="Gourmet pasta dish with fresh basil" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6eeW0G_jklY3YfR0X0zYHgL3Rje5GYjounZGw1uZxnklhhfh7wloDlYDe1qITRNLhHHKWbouv5plUx1XgjbBhFq6gxD3NoeymnToEJkb2IpipIk2qexuXHQvWE3lyrPJccMIQe2OPfS5V9IdsGhiYdWvCuG83Goad--3b-vg8lYVWkkNPnDKMBflXTk0mjeRingW6hw5LjE2cYngB88NEAqshZzPSnmWnmnzLgcxMzWpT4jKj--h-BjCjDmPRePfpaNAlco37CSw"/>
+</div>
+<span class="text-[12px] text-slate-100 truncate w-14 text-center">Food</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 min-w-[56px]">
+<div class="w-14 h-14 rounded-full p-[2px] border border-white/30">
+<img alt="Views highlight" class="w-full h-full rounded-full object-cover" data-alt="Panoramic view of mountain landscape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRtiNEb_d-yuZ9bcwyFtBRffGbA87bfp7zHGiwJX9kEfdzfUXPJLFdUhAdNtmxr_5tFNIJLFW4aiB-l-bV4Qo1Qyg6tOk9gl_r6Z5Qq_43CjoagcjeGV07Vf6AlCnZ0kgiNI3eex5FFmC3IftF7SyXrEhpTkYjxJELUV7TZSL86UjuYiMRUCQu2e_Zxg-T_Rm6wdEMhu4oERkc_hMvf2HxBsFNtogBlTZyP4ZvHx24RvOXBwUErX0JtpN8fu501saaF3xX36sUq54"/>
+</div>
+<span class="text-[12px] text-slate-100 truncate w-14 text-center">Views</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 min-w-[56px]">
+<div class="w-14 h-14 rounded-full p-[2px] border border-white/30">
+<img alt="Beach highlight" class="w-full h-full rounded-full object-cover" data-alt="Crystal clear turquoise beach water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJqAOqmJ9dXyXajqYxSxcvPa0SmyFjtg9LgEZ0OxiQwF538s9s-k6CTKYPqZ5EM-nhHJcMZ8nRjP90QkxpC6sMo7IkvljPBZG21eppLMFP3Zlhjghc10U00ylNZWo-TxDFHE3qv2F1DP3nQj3g7BJznNWsMZ3BSW9lpHXktxOqSy3OM6snypsh28K7t1D34VcDHBhZkI9GG3xi17qb3t8NH-5z_w1OxveQTs8kCmBl8M7YBu3OEVndmGJGNUt79dLSqD8TKyZd1Vo"/>
+</div>
+<span class="text-[12px] text-slate-100 truncate w-14 text-center">Beach</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 min-w-[56px]">
+<div class="w-14 h-14 rounded-full p-[2px] border border-white/30">
+<img alt="Nature highlight" class="w-full h-full rounded-full object-cover" data-alt="Lush green tropical forest landscape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjx_PYpLHakUiEqUvhkx_cjx7LhH3SHi2iDGsTaNsbnbS_C7vUvcMmp_DC4vrMNS1rx-MG4ueJUiMuMO1zE3WrVcHhp0OQuXfVo_XhOYK-26Fsu_RH2JkUPQnfE-VGNkHsZi2L1zvUHzb0G5KEhrXEvsy2KRETeSvSMx4nIp4-vSe137674SeYaqHX4Xp8HXnJ8HD4rpsS6v7ibqSDeotwQ6pSM3hqk4ZJqDrHUnmDNe-0Y0r9s3INP9H1Rmhs8Pxz3U2vJb2c-uQ"/>
+</div>
+<span class="text-[12px] text-slate-100 truncate w-14 text-center">Nature</span>
+</div>
+</div>
+<!-- Content Tabs -->
+<div class="mt-4 border-t border-white/20">
+<div class="flex h-11">
+<div class="flex-1 flex items-center justify-center border-b border-slate-100">
+<span class="material-symbols-outlined text-slate-100 filled-icon">grid_on</span>
+</div>
+<div class="flex-1 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-100/50">movie</span>
+</div>
+<div class="flex-1 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-100/50">person_pin</span>
+</div>
+</div>
+</div>
+<!-- Photo Grid -->
+<div class="grid grid-cols-3 gap-[1px] bg-white/10 flex-1">
+<div class="aspect-square bg-slate-800">
+<img alt="Travel photo 1" class="w-full h-full object-cover" data-alt="Rocky cliffs by the ocean shore" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfjpIdspRV8KUifD-5faQpjEyc8vFcfZlGoXrKnxuGdcbf7FZSoQVi8lPx0XyjpZ0qgLj0wvrdSIyrUbhcbIkJ81sciGTQKPwo_uQ4fAT-H8rVRrQVl4PjVIai4lVZdQWaezzs5nkgGzwSS4V1eu0gbzQfQeoIV6ziSyhq7KCCmQxIvvbzO3bm8BpiszJJQNesT2OeZ74TxKs2YG12ZNmNOseGtbVb3Tq2vkN2vXFxpgX_LqQNGsQTPgQD8w2LmRb7QlyYfamcgF0"/>
+</div>
+<div class="aspect-square bg-slate-800">
+<img alt="Travel photo 2" class="w-full h-full object-cover" data-alt="Traditional Italian street with flowers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzOBNVsdDklXfmXBllQRR2ek6r6nX9DQmh0DAND88mfnon9uN0v9S8MW5PuDzTuyhJo3comHAQlg4rsZhT3s7leI_y07Shy2-J_3HP7CZcCji_JuC8vkD88c9wmX4MxUYc212kwOZuYNAi7IDQ31E7vEqiGX5kQFvoS5bbXU8qLoPTLY5JW2tni6ZK5tWBzbmz8eNiUD0ipRq3swkHaLxwCIzVqdIE0cBvp5dsrAJVFh7YeDu1qldO3_0XvGvxNL-z3ioeOwWnXIQ"/>
+</div>
+<div class="aspect-square bg-slate-800">
+<img alt="Travel photo 3" class="w-full h-full object-cover" data-alt="Sunrise over a serene mountain lake" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUjasFJT9zlpl6mSFNFEgBsicy1otFEa1SFaO2qLQnGV4044-jozBILW5Fn21Y4-fUwhuKUtkp3Ef5TlseNL7LtQkqKI3J8zsHx_Wtt6qRE4ALcRldqMrPl7f1Y-GBrRes4Q3nxmvwGxpb6g5ApVwBxnIpoeeJXYJt_Gp55K0HW3xXivsfsdoD0gB7t16_JH47nPOltkWoEHmalafkHmZF86HoFFKuot984PRnVZOQsB_Zp3Ia1nTn2cFZ1waB0j3dZp-mbFnFMds"/>
+</div>
+<div class="aspect-square bg-slate-800">
+<img alt="Travel photo 4" class="w-full h-full object-cover" data-alt="Colorful Mediterranean village on a cliff" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbO88vb_Q4Q5NjzwhUHw8wRsDU5sI3bhRGD6RRwFzAdfsdFbtDr1aTY88KqvLt97ZVo47pdfTBOYfKwhyWlBO0HwEHYg0V4ngoJR4B8FvqAFuWgJEC6Ar08_NYe6NzYy5hFsAHFkEb2wvQAR6_6pm3-51-Y81ehBBNsaLYaES0BgJNLFtmkr6BchTWHsLAUzRJeJjTkhjrORxueCkz868VL88bAvHl__hPwiUnGeKuH5QZpEpHQw5SEYElAgisJtrECT13LSEfxns"/>
+</div>
+<div class="aspect-square bg-slate-800">
+<img alt="Travel photo 5" class="w-full h-full object-cover" data-alt="Historic Roman colosseum at twilight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC02D7lUgo9qJ8ULkO6PVvjLkY5qzElStMZCssBVcXAgYyvOWaR7cR3cOhGm9Av013QHmWKnBYr6s447ZNtT2K0B0vVFKhYBaTs3BbRA5vLhzEhjV6u-suwQMLUX7vPzurZAN07rElXZjIg4im6zUNJ3ud7zgwXlec1Wt3Ityz-jvildoPxeDVXrPHJCLC9N3afR_j3n-Lmil4WUbx2NTsm7EobOsLy-Wccg_7BN4hDbsf8Z9huAHLUyGwyFhyZwe96kseDvR6HJUI"/>
+</div>
+<div class="aspect-square bg-slate-800">
+<img alt="Travel photo 6" class="w-full h-full object-cover" data-alt="Blue dome churches in Santorini" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkjEwtB-XAKviBLm-oPGULpxPrIPcRImMhGah1ZFzCki4_VBM77SqnZ6i1eXLge17mgUlzbBXpCgqyTSzTd2ZQNgBI2Mv2cezSs1V5RPQjKH0PbTc5f361NI7iX3eBkxpLu8U6SR8vZNIJRpiiK8npJi_TN1QMg6xAIdDASMRS3T_h7UOdRVUR2Xw460ljUcOFmdaQbNjTSP98Sbdx3MCNmOk8AZWX_B6zLBk2Z0blOTL-bDk88sZZd0_2VmnVy2wvncfOe7W6lS8"/>
+</div>
+<div class="aspect-square bg-slate-800">
+<img alt="Travel photo 7" class="w-full h-full object-cover" data-alt="Eiffel Tower from a distance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmoAMG89flVqamyaNo2VrZvaRnRoV1Ec_AXn6xjynGwk2HWidM7jg2w6wajzGj0Jwj2aF7Wf6f5Ky-AVp3HrH4aFp6V5pudSPe6euKq77OmF-_YNZiyqz_rT8yLN1B9H3wuq07UZ9xwZ45XTUQwnPktTZroA3KLIzHfH_sLBUxjjQxlAU8JUT1gbqETnkFKvXc0f-U0VeW48fz4NthF-DNMSTwiNwSnFgUa5V4fTcWMZxwx196tqL4AGT19C6pi4Ww2NMB285PWxY"/>
+</div>
+<div class="aspect-square bg-slate-800">
+<img alt="Travel photo 8" class="w-full h-full object-cover" data-alt="Tropical island resort over water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg2xOOCiQ2QbOkJkUF_mXwvkVdhGvK_CXxH1bePmeW-XmgeOUopdjLzjmyj0lnUNG3oIAWcKSUWX2t7ZLEFtXEwwYvDxoRDut3BXRo4wc0YYAY8ZX34q0XsGegmJ__lSbvAwJRNnaVx8D07Y4UzAWoeVRYgSspkqfB-cc_0SAi-iEyYoFAAO3bzb3rd7mxVxPAH_kuQnKQkxQlg43VZFDgRu0r82PDTtm1zku_APwGJcqS9N5P3UpzIBke7uBAL7mmDcfDe_PTw3U"/>
+</div>
+<div class="aspect-square bg-slate-800">
+<img alt="Travel photo 9" class="w-full h-full object-cover" data-alt="Coastal road with turquoise sea views" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpyzvdnFAIo85Z5EeBGeJ6ClgcEs_Cp4o15ko1F2LsfXmBq09C5AxXu7nY4OsiiXdX7TRDBFFgE9iQCzTZIbyrYla68yZnPmI8N7MpX3IGiwXtYspUGXOAN54UZSW1daemS4LxUOy0IGf6fe4XSeTCsPNfNygnFmjWGd7AmHNsvR4cB4KgsMUULcl-RJBEfyreifZDsfLl7tnuca-r6k9Wz7T2YDZ3i4rsn-glvMVxHPj1WDytCF03MDE1J42ik21LkdOO2CLTW2c"/>
+</div>
+</div>
+<!-- Bottom Tab Bar -->
+<nav class="h-[79px] bg-ig-elevated border-t-[0.33px] border-ig-border px-6 pt-2 pb-6 flex items-start justify-between" data-purpose="bottom-navigation">
+<!-- Home -->
+<button class="p-2">
+<svg fill="none" height="24" stroke="white" stroke-width="2" viewbox="0 0 24 24" width="24">
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+</button>
+<!-- Search -->
+<button class="p-2">
+<svg fill="none" height="24" stroke="white" stroke-width="2" viewbox="0 0 24 24" width="24">
+<circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+</svg>
+</button>
+<!-- Add -->
+<button class="p-2">
+<svg fill="none" height="24" stroke="white" stroke-width="2" viewbox="0 0 24 24" width="24">
+<rect height="18" rx="5" width="18" x="3" y="3"></rect>
+<line x1="12" x2="12" y1="8" y2="16"></line>
+<line x1="8" x2="16" y1="12" y2="12"></line>
+</svg>
+</button>
+<!-- Activity -->
+<button class="p-2">
+<svg fill="none" height="24" stroke="white" stroke-width="2" viewbox="0 0 24 24" width="24">
+<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+</svg>
+</button>
+<!-- Profile (Active State) -->
+<button class="p-2">
+<div class="w-6 h-6 rounded-full overflow-hidden border border-white">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz5fY-HgnGaJSxvLNiN-TVplo1ueKdQEl3lIJwtV3kjrwqm0leKRk4UxB0IOeX2RDqx2khCB7C2xG1pvMh8cn7zd1dv0tFLz4m-wYGxUImPoYka5BsQUJDujUWNLF9U9wRX6Q6dlwKYau3w9ypFLWErYnzWKL_rnGENdigVR4c5xtusxV0AQTI7AjdMa4BK0VjThEDVGYyDUhvIShnuk_RuKhtbIcWlvM3qSPSAiNMGkb8WTO4SuOtvxsf3ZMoRDspC9OWdibQaWQ"/>
+</div>
+</button>
+</nav>
+</div>
+</body></html>
