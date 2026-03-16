@@ -12,7 +12,9 @@ A feature-rich Instagram clone built with Flutter, focused on premium UI/UX, smo
 
 ## 🎬 Demo Video
 
-![Project Demo Video](docs/demo_video.mp4)
+<video src="docs/demo_video.mp4" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
 
 ---
 
