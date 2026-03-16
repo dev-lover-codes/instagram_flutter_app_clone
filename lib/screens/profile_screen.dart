@@ -162,7 +162,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                 controller: _tabCtrl,
                 indicatorColor: kTextPrimary,
                 indicatorWeight: 1,
-                tabs: const [
+                tabs: [
                   Tab(icon: Icon(Icons.grid_on, color: kTextPrimary)),
                   Tab(icon: Icon(Icons.movie_outlined, color: kTextSecondary)),
                   Tab(icon: Icon(Icons.person_pin_circle_outlined, color: kTextSecondary)),
@@ -190,9 +190,9 @@ class _ProfileScreenState extends State<ProfileScreen>
               ),
             ),
             // Reels tab
-            const Center(child: Text('No Reels yet', style: kCaption)),
+            Center(child: Text('No Reels yet', style: kCaption)),
             // Tagged tab
-            const Center(child: Text('No tagged posts', style: kCaption)),
+            Center(child: Text('No tagged posts', style: kCaption)),
           ],
         ),
       ),

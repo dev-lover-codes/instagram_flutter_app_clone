@@ -19,7 +19,7 @@ const _storyImages = [
 ];
 
 final _sampleUsers = [
-  const UserModel(
+  UserModel(
     id: '1',
     username: 'traveler_vibe',
     displayName: 'Traveler Vibe',
@@ -32,7 +32,7 @@ final _sampleUsers = [
     followingCount: 380,
     bio: 'Adventure seeker 🌍✈️',
   ),
-  const UserModel(
+  UserModel(
     id: '2',
     username: 'wanderlust',
     displayName: 'Wanderlust',
@@ -43,7 +43,7 @@ final _sampleUsers = [
     followingCount: 210,
     bio: 'Chasing sunsets 🌅',
   ),
-  const UserModel(
+  UserModel(
     id: '3',
     username: 'pixel_adven',
     displayName: 'Pixel Adventures',
@@ -54,7 +54,7 @@ final _sampleUsers = [
     followingCount: 180,
     bio: 'Photography & Life 📸',
   ),
-  const UserModel(
+  UserModel(
     id: '4',
     username: 'amalfi_coasts',
     displayName: 'Amalfi Coasts',
@@ -67,7 +67,7 @@ final _sampleUsers = [
     bio: 'Exploring the hidden gems of the Mediterranean. Summer never ends here! 🍋🇮🇹',
     website: 'amalficoasts.com',
   ),
-  const UserModel(
+  UserModel(
     id: '5',
     username: 'joshua_l',
     displayName: 'Joshua L',
@@ -78,7 +78,7 @@ final _sampleUsers = [
     followingCount: 420,
     bio: 'Mountain photographer 🏔️',
   ),
-  const UserModel(
+  UserModel(
     id: '6',
     username: 'me',
     displayName: 'You',

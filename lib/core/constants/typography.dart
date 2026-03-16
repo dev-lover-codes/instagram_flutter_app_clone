@@ -2,49 +2,50 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'colors.dart';
 
-final TextStyle kHeading = GoogleFonts.inter(
+// These must be final (not const) because GoogleFonts.inter() is not a const function
+TextStyle get kHeading => GoogleFonts.inter(
   fontSize: 22,
   fontWeight: FontWeight.w700,
   color: kTextPrimary,
 );
 
-final TextStyle kSubheading = GoogleFonts.inter(
+TextStyle get kSubheading => GoogleFonts.inter(
   fontSize: 16,
   fontWeight: FontWeight.w600,
   color: kTextPrimary,
 );
 
-final TextStyle kBodyBold = GoogleFonts.inter(
+TextStyle get kBodyBold => GoogleFonts.inter(
   fontSize: 14,
   fontWeight: FontWeight.w600,
   color: kTextPrimary,
 );
 
-final TextStyle kBody = GoogleFonts.inter(
+TextStyle get kBody => GoogleFonts.inter(
   fontSize: 14,
   fontWeight: FontWeight.w400,
   color: kTextPrimary,
 );
 
-final TextStyle kCaption = GoogleFonts.inter(
+TextStyle get kCaption => GoogleFonts.inter(
   fontSize: 13,
   fontWeight: FontWeight.w400,
   color: kTextPrimary,
 );
 
-final TextStyle kCaptionBold = GoogleFonts.inter(
+TextStyle get kCaptionBold => GoogleFonts.inter(
   fontSize: 13,
   fontWeight: FontWeight.w600,
   color: kTextPrimary,
 );
 
-final TextStyle kSmall = GoogleFonts.inter(
+TextStyle get kSmall => GoogleFonts.inter(
   fontSize: 12,
   fontWeight: FontWeight.w400,
   color: kTextPrimary,
 );
 
-final TextStyle kTiny = GoogleFonts.inter(
+TextStyle get kTiny => GoogleFonts.inter(
   fontSize: 11,
   fontWeight: FontWeight.w400,
   color: kTextSecondary,
