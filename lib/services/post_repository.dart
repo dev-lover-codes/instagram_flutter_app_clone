@@ -98,9 +98,10 @@ class PostRepository {
 
   static List<String> getExploreImages() => _postImages;
 
-  static List<PostModel> getReelPosts() {
+  static Future<List<PostModel>> getReelPosts({int page = 0}) async {
+    await Future.delayed(const Duration(milliseconds: 400));
     final users = StoryRepository.sampleUsers;
-    return [
+    final base = [
       PostModel(
         id: 'r1',
         user: users[4],
@@ -132,18 +133,31 @@ class PostRepository {
         type: PostType.reel,
       ),
     ];
+    if (page == 0) return base;
+    return base.map((p) => PostModel(
+      id: '${p.id}_p$page',
+      user: p.user,
+      imageUrls: p.imageUrls,
+      caption: p.caption,
+      likeCount: p.likeCount,
+      commentCount: p.commentCount,
+      timestamp: p.timestamp.subtract(Duration(days: page * 2)), // Adjust timestamp for pagination
+      type: p.type,
+    )).toList();
   }
 
-  static List<PostModel> getProfilePosts() {
+  static Future<List<PostModel>> getProfilePosts({int page = 0}) async {
+    await Future.delayed(const Duration(milliseconds: 300));
     final me = StoryRepository.sampleUsers[5];
-    return List.generate(9, (i) => PostModel(
-      id: 'my$i',
+    final base = List.generate(9, (i) => PostModel(
+      id: 'my${i}_p$page',
       user: me,
-      imageUrls: [_postImages[i % _postImages.length]],
-      caption: 'Memory #$i',
+      imageUrls: [_postImages[(i + page * 9) % _postImages.length]],
+      caption: 'Memory #${i + page * 9}',
       likeCount: 100 + i * 50,
       commentCount: 10 + i,
-      timestamp: DateTime.now().subtract(Duration(days: i * 3)),
+      timestamp: DateTime.now().subtract(Duration(days: i * 3 + page * 27)),
     ));
+    return base;
   }
 }

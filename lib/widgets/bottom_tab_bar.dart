@@ -33,8 +33,8 @@ class BottomTabBar extends StatelessWidget {
             onTap: () => onTap(1),
           ),
           _TabItem(
-            icon: Icons.add_box_outlined,
-            iconOutline: Icons.add_box_outlined,
+            icon: Icons.movie,
+            iconOutline: Icons.movie_outlined,
             isActive: currentIndex == 2,
             onTap: () => onTap(2),
           ),

@@ -4,8 +4,8 @@ import '../widgets/bottom_tab_bar.dart';
 import 'home_feed_screen.dart';
 import 'search_screen.dart';
 import 'reels_screen.dart';
+import 'notifications_screen.dart';
 import 'profile_screen.dart';
-import 'upload_reel_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -20,23 +20,12 @@ class _MainScreenState extends State<MainScreen> {
   static const _screens = [
     HomeFeedScreen(),
     SearchScreen(),
-    SizedBox.shrink(), // placeholder for upload sheet
     ReelsScreen(),
+    NotificationsScreen(),
     ProfileScreen(),
   ];
 
   void _onTabTap(int index) {
-    if (index == 2) {
-      // Show upload reel modal
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          fullscreenDialog: true,
-          builder: (_) => const UploadReelScreen(),
-        ),
-      );
-      return;
-    }
     setState(() => _currentIndex = index);
   }
 
@@ -45,8 +34,8 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       backgroundColor: kBackground,
       body: IndexedStack(
-        index: _currentIndex == 2 ? 0 : _currentIndex > 2 ? _currentIndex - 1 : _currentIndex,
-        children: _screens.where((s) => s is! SizedBox).toList(),
+        index: _currentIndex,
+        children: _screens,
       ),
       bottomNavigationBar: BottomTabBar(
         currentIndex: _currentIndex,

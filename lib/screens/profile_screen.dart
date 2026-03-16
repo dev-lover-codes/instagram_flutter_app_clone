@@ -4,6 +4,7 @@ import '../core/constants/colors.dart';
 import '../core/constants/typography.dart';
 import '../services/story_repository.dart';
 import '../services/post_repository.dart';
+import '../models/post_model.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -15,8 +16,11 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen>
     with SingleTickerProviderStateMixin {
   late final TabController _tabCtrl;
-  final user = StoryRepository.sampleUsers[3]; // Using amalfi_coasts for better match
-  final posts = PostRepository.getProfilePosts();
+  final user = StoryRepository.sampleUsers[3];
+  final List<PostModel> _posts = [];
+  bool _isLoading = false;
+  int _page = 0;
+  late ScrollController _scrollCtrl;
 
   final _highlights = [
     {'label': 'Italy', 'img': 'https://lh3.googleusercontent.com/aida-public/AB6AXuBXFBO_uWojInoWUDjU8AzzLkycCje5Ilpn8caya-DveHsr2jIRjHNANxaCmiaYLyM7ztGX1XBorWq1n_YuUTATKtSlu9LVS3xgAQy51DUND0npeM-o8GI6yr0s5lNuDW3UE_oWxnQqHY-Eb_Br4yTU05Zu60Ikh2fDj62dCXlfJkO6hAnhwgOxUyfQmbAkDqTh-k9E_asAnXKQB9vNMTtd85f57fAP_ndzKGxpFGEmOLDOFXusMo8xEMrdK-yRhJTGoHiTf1je7Fk'},
@@ -30,12 +34,35 @@ class _ProfileScreenState extends State<ProfileScreen>
   void initState() {
     super.initState();
     _tabCtrl = TabController(length: 3, vsync: this);
+    _scrollCtrl = ScrollController();
+    _loadPosts();
+    _scrollCtrl.addListener(_onScroll);
   }
 
   @override
   void dispose() {
     _tabCtrl.dispose();
+    _scrollCtrl.dispose();
     super.dispose();
+  }
+
+  Future<void> _loadPosts() async {
+    if (_isLoading) return;
+    setState(() => _isLoading = true);
+    final newPosts = await PostRepository.getProfilePosts(page: _page);
+    if (mounted) {
+      setState(() {
+        _posts.addAll(newPosts);
+        _isLoading = false;
+        _page++;
+      });
+    }
+  }
+
+  void _onScroll() {
+    if (_scrollCtrl.position.pixels >= _scrollCtrl.position.maxScrollExtent - 200) {
+      _loadPosts();
+    }
   }
 
   @override
@@ -56,6 +83,7 @@ class _ProfileScreenState extends State<ProfileScreen>
         ],
       ),
       body: NestedScrollView(
+        controller: _scrollCtrl,
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           // Profile header
           SliverToBoxAdapter(
@@ -195,20 +223,27 @@ class _ProfileScreenState extends State<ProfileScreen>
           controller: _tabCtrl,
           children: [
             // Grid tab
-            GridView.builder(
-              padding: EdgeInsets.zero,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                mainAxisSpacing: 1.5,
-                crossAxisSpacing: 1.5,
-              ),
-              itemCount: posts.length,
-              itemBuilder: (_, i) => CachedNetworkImage(
-                imageUrl: posts[i].imageUrls.first,
-                fit: BoxFit.cover,
-                placeholder: (_, __) => Container(color: kShimmerBase),
-              ),
-            ),
+            _posts.isEmpty && _isLoading
+                ? const Center(child: CircularProgressIndicator())
+                : GridView.builder(
+                    padding: EdgeInsets.zero,
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      mainAxisSpacing: 1.5,
+                      crossAxisSpacing: 1.5,
+                    ),
+                    itemCount: _posts.length + (_isLoading ? 3 : 0),
+                    itemBuilder: (_, i) {
+                      if (i >= _posts.length) {
+                        return Container(color: kShimmerBase);
+                      }
+                      return CachedNetworkImage(
+                        imageUrl: _posts[i].imageUrls.first,
+                        fit: BoxFit.cover,
+                        placeholder: (_, __) => Container(color: kShimmerBase),
+                      );
+                    },
+                  ),
             // Reels tab
             Center(child: Text('No Reels yet', style: kCaption)),
             // Tagged tab
