@@ -1,0 +1,10 @@
+const double kTopBarHeight = 88;
+const double kStoryTrayHeight = 98;
+const double kPostHeaderHeight = 54;
+const double kTabBarHeight = 79;
+const double kAvatarSize = 56;
+const double kPostAvatarSize = 32;
+const double kPostActionsHeight = 147;
+const double kHorizontalPadding = 16;
+const double kStorySpacing = 8;
+const double kPostImageSize = 375;
